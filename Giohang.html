@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NghiaRose Store - Giỏ hàng</title>
+  <script src="https://kit.fontawesome.com/b3c785d5cb.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Covered By Your Grace">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <script src="giohang.js"></script>
+    <style>
+         input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    text-align: center;
+    padding: 2px;
+    width: 50px; /* Độ rộng ô số lượng */
+  }
+        body {
+      font-family: 'Montserrat', sans-serif;
+    }
+    h1 {
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    .delete-btn {
+      color: #ff0000;
+      cursor: pointer;
+    }
+    .delete-btn:hover {
+      color: #cc0000;
+    }
+    .total {
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    function removeItem(row) {
+      row.parentNode.removeChild(row);
+    }
+  </script>
+  
+    </style>
+</head>
+<body>
+    <div class="home">
+        <nav class="navbar">
+            <h2 class="logo">Vux Store</h2>
+            <ul>
+                <li>
+                    <a href="index.html">Trang Chủ</a>
+                </li>
+                <li>
+                    <a href="#section3">Hoa Bán Chạy</a>
+                </li>
+
+                <li>
+                    <a href="#section2">Hoa Mới Nhất</a>
+
+                </li>
+
+                <li>
+                    <a href="#section4">Nhận Xét</a>
+                </li>
+
+                <li>
+                    <a href="gioithieu.html" target="_blank">giới thiệu</a>
+                </li>
+
+
+
+
+            </ul>
+            <a href="login.html" class="btn">Login
+            </a>
+            <a href="Giohang.html" class="btn">Giỏ Hàng</a>
+
+        </nav>
+
+        <br>
+    </div>
+
+  <table>
+    </thead>
+    <tbody>
+        <div class="container">
+            <h1 style="text-align: center;" class="title">Giỏ hàng</h1>
+            <div id="cart-container">
+              <table class="cart-table" id="cart-table">
+                <thead>
+                    <tr>
+                        <th class="image">Sản phẩm</th>
+                        <th class="item">Tên sản phẩm</th>
+                        <th class="qty">Số lượng</th>
+                        <th class="price">Giá tiền</th>
+                        <th class="remove">Xoá</th>
+                      </tr>
+                </thead>
+                <tbody id="cart-items">
+                  <!-- Nội dung giỏ hàng -->
+                </tbody>
+              </table>
+              <div class="cart-summary">
+                <div class="total">
+                  Tổng tiền: <span id="total-price">0₫</span>
+                </div>
+                <div class="actions">
+                  <button class="update-btn" onclick="updateCart()">Cập nhật</button>
+                  <button class="checkout-btn" onclick="checkout()">Thanh toán</button>
+                </div>
+              </div>
+            </div>
+            <div id="empty-cart-msg" class="empty-cart-msg">
+              Giỏ hàng trống
+            </div>
+          </div>
+    </tbody>
+  </table>
+  <div id="section5">
+    <footer>
+        <p style="color: white; font-size: 40px; font-family: 'Covered By Your Grace';">Vux Store
+        </p>
+        <br>
+        <div class="shop-description">
+            <p
+                style=" color: #949495; font-family: 'Montserrat'; font-size: 18px; justify-content: center; text-align: center;">
+                Kính gửi quý khách hàng, chúng tôi xin bày tỏ lòng biết ơn chân thành vì đã ghé thăm cửa hàng của chúng tôi.
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="info">
+                <p style="color: white; font-weight: bold; font-family: 'Montserrat'; font-size: 20px;">Location</p>
+                <br>
+                <div class="row">
+                    <i class="fa-solid fa-location-dot" style="font-size: 19px; color: white;"></i>
+                    <div class="column-space-container10">
+                    </div>
+                    <p style="color: #949495; font-family: 'Montserrat'; ">Tân Bình, TP.HCM</p>
+                    <!-- <p style="color: white;">Melbourne, VIC 3000</p> -->
+
+                </div>
+            </div>
+
+            <div class="column-space-container9">
+            </div>
+
+            <div class="info">
+                <p style="color: white; font-weight: bold; font-family: 'Montserrat'; font-size: 20px;">Contacts</p>
+                <br>
+                <div class="row">
+                    <i class="fa-solid fa-phone" style="font-size: 18px; color: white;"></i>
+
+                    <div class="column-space-container10">
+                    </div>
+                    <p style="color: #949495; font-family: 'Montserrat';">039.375.1573</p>
+                </div>
+                <br>
+                <div class="row">
+                    <i class="fa-solid fa-envelope" style="font-size: 18px; color: white;"></i>
+
+                    <div class="column-space-container10">
+                    </div>
+                    <p style="color: #949495; font-family: 'Montserrat';">LOSER.VUDINH@GMAIL.COM</p>
+                </div>
+            </div>
+
+            <div class="column-space-container9">
+            </div>
+            <div class="info">
+                <p style="color: white; font-size: 20px; font-weight: bold; font-family: 'Montserrat';">Socials</p>
+                <br>
+                <div class="social">
+                    <a href="https://www.facebook.com/NgVuAdsense/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/ngvuu.x/"  target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp" target="_blank" ></i></a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+</div>
+</body>
+</html>
